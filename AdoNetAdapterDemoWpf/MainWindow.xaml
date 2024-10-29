@@ -1,0 +1,44 @@
+﻿<Window
+    x:Class="AdoNetAdapterDemoWpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AdoNetAdapterDemoWpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <DataGrid
+            x:Name="UsersGrid"
+            Margin="10"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Users}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Binding="{Binding Id}"
+                    Header="ID"
+                    IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+                <DataGridTextColumn Binding="{Binding Email}" Header="Email" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <Button Click="AddButton_Click" Content="Add" />
+            <Button
+                Margin="10,0,0,0"
+                Click="EditButton_Click"
+                Content="Edit" />
+            <Button
+                Margin="10,0,0,0"
+                Click="DeleteButton_Click"
+                Content="Delete" />
+        </StackPanel>
+    </Grid>
+</Window>
